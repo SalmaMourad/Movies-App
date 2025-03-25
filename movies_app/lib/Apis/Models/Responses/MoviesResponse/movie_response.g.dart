@@ -41,11 +41,14 @@ Map<String, dynamic> _$DataToJson(Data instance) => <String, dynamic>{
 Movie _$MovieFromJson(Map<String, dynamic> json) => Movie(
       id: (json['id'] as num).toInt(),
       title: json['title'] as String,
-      year: json['year'] as String,
-      rating: json['rating'] as String,
-      runtime: json['runtime'] as String,
+      year: (json['year'] as num).toInt(),
+      rating: (json['rating'] as num).toDouble(),
+      runtime: (json['runtime'] as num).toInt(),
       summary: json['summary'] as String?,
       background_image: json['background_image'] as String?,
+      background_image_original: json['background_image_original'] as String?,
+      large_cover_image: json['large_cover_image'] as String?,
+      medium_cover_image: json['medium_cover_image'] as String?,
       small_cover_image: json['small_cover_image'] as String?,
     );
 
@@ -57,5 +60,8 @@ Map<String, dynamic> _$MovieToJson(Movie instance) => <String, dynamic>{
       'runtime': instance.runtime,
       'summary': instance.summary,
       'background_image': instance.background_image,
+      'background_image_original': instance.background_image_original,
+      'large_cover_image': instance.large_cover_image,
+      'medium_cover_image': instance.medium_cover_image,
       'small_cover_image': instance.small_cover_image,
     };
