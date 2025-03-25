@@ -75,7 +75,6 @@ class MoviesGrid extends StatelessWidget {
 //   }
 // }
 
-
 // // class MoviesGrid extends StatelessWidget {
 // //   const MoviesGrid({
 // //     super.key,
@@ -100,7 +99,7 @@ class MoviesGrid extends StatelessWidget {
 // //             mainAxisSpacing: 7,
 // //             childAspectRatio: 0.7,
 // //           ),
-          
+
 // //           itemCount:
 // //               moviesByCategory[categories[selectedCategoryIndex]]!.length,
 // //           itemBuilder: (context, index) {

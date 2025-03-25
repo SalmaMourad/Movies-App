@@ -4,16 +4,61 @@ import 'package:movies_app/UI%20Screens/BrowserScreen/widgets/category_tab.dart'
 
 class BrowserScreen extends StatefulWidget {
   //34an test llsearch screen
-static List<Map<String, String>> movies = [
-    {"image": "Assets/Images/blackWidowPoster.jpg", "rating": "8.2", "name": "Black Widow", "category": "Action"},
-    {"image": "Assets/Images/IronManPoster.jpg", "rating": "8.2", "name": "Black Widow", "category": "Action"},
-    {"image": "Assets/Images/blackWidowPoster.jpg", "rating": "8.2", "name": "Black Widow", "category": "Action"},
-    {"image": "Assets/Images/blackWidowPoster.jpg", "rating": "8.2", "name": "Black Widow", "category": "Action"},
-    {"image": "Assets/images/IronManPoster.jpg", "rating": "8.2", "name": "Iron Man", "category": "Action"},
-    {"image": "Assets/Images/blackWidowPoster.jpg", "rating": "7.9", "name": "Widow Again", "category": "Adventure"},
-    {"image": "Assets/images/IronManPoster.jpg", "rating": "8.3", "name": "Iron Man 2", "category": "Adventure"},
-    {"image": "Assets/Images/blackWidowPoster.jpg", "rating": "8.1", "name": "Funny Widow", "category": "Comedy"},
-    {"image": "Assets/Images/blackWidowPoster.jpg", "rating": "7.6", "name": "Comedy Action", "category": "Comedy"},
+  static List<Map<String, String>> movies = [
+    {
+      "image": "Assets/Images/blackWidowPoster.jpg",
+      "rating": "8.2",
+      "name": "Black Widow",
+      "category": "Action"
+    },
+    {
+      "image": "Assets/Images/IronManPoster.jpg",
+      "rating": "8.2",
+      "name": "Black Widow",
+      "category": "Action"
+    },
+    {
+      "image": "Assets/Images/blackWidowPoster.jpg",
+      "rating": "8.2",
+      "name": "Black Widow",
+      "category": "Action"
+    },
+    {
+      "image": "Assets/Images/blackWidowPoster.jpg",
+      "rating": "8.2",
+      "name": "Black Widow",
+      "category": "Action"
+    },
+    {
+      "image": "Assets/images/IronManPoster.jpg",
+      "rating": "8.2",
+      "name": "Iron Man",
+      "category": "Action"
+    },
+    {
+      "image": "Assets/Images/blackWidowPoster.jpg",
+      "rating": "7.9",
+      "name": "Widow Again",
+      "category": "Adventure"
+    },
+    {
+      "image": "Assets/images/IronManPoster.jpg",
+      "rating": "8.3",
+      "name": "Iron Man 2",
+      "category": "Adventure"
+    },
+    {
+      "image": "Assets/Images/blackWidowPoster.jpg",
+      "rating": "8.1",
+      "name": "Funny Widow",
+      "category": "Comedy"
+    },
+    {
+      "image": "Assets/Images/blackWidowPoster.jpg",
+      "rating": "7.6",
+      "name": "Comedy Action",
+      "category": "Comedy"
+    },
   ];
   @override
   _BrowserScreenState createState() => _BrowserScreenState();
@@ -25,23 +70,70 @@ class _BrowserScreenState extends State<BrowserScreen> {
   List<String> categories = ["Action", "Adventure", "Comedy"];
   //34an test llbrowse screen
 
- static List<Map<String, String>> movies = [
-    {"image": "Assets/Images/blackWidowPoster.jpg", "rating": "8.2", "name": "Black Widow", "category": "Action"},
-    {"image": "Assets/Images/IronManPoster.jpg", "rating": "8.2", "name": "Black Widow", "category": "Action"},
-    {"image": "Assets/Images/blackWidowPoster.jpg", "rating": "8.2", "name": "Black Widow", "category": "Action"},
-    {"image": "Assets/Images/blackWidowPoster.jpg", "rating": "8.2", "name": "Black Widow", "category": "Action"},
-    {"image": "Assets/images/IronManPoster.jpg", "rating": "8.2", "name": "Iron Man", "category": "Action"},
-    {"image": "Assets/Images/blackWidowPoster.jpg", "rating": "7.9", "name": "Widow Again", "category": "Adventure"},
-    {"image": "Assets/images/IronManPoster.jpg", "rating": "8.3", "name": "Iron Man 2", "category": "Adventure"},
-    {"image": "Assets/Images/blackWidowPoster.jpg", "rating": "8.1", "name": "Funny Widow", "category": "Comedy"},
-    {"image": "Assets/Images/blackWidowPoster.jpg", "rating": "7.6", "name": "Comedy Action", "category": "Comedy"},
+  static List<Map<String, String>> movies = [
+    {
+      "image": "Assets/Images/blackWidowPoster.jpg",
+      "rating": "8.2",
+      "name": "Black Widow",
+      "category": "Action"
+    },
+    {
+      "image": "Assets/Images/IronManPoster.jpg",
+      "rating": "8.2",
+      "name": "Black Widow",
+      "category": "Action"
+    },
+    {
+      "image": "Assets/Images/blackWidowPoster.jpg",
+      "rating": "8.2",
+      "name": "Black Widow",
+      "category": "Action"
+    },
+    {
+      "image": "Assets/Images/blackWidowPoster.jpg",
+      "rating": "8.2",
+      "name": "Black Widow",
+      "category": "Action"
+    },
+    {
+      "image": "Assets/images/IronManPoster.jpg",
+      "rating": "8.2",
+      "name": "Iron Man",
+      "category": "Action"
+    },
+    {
+      "image": "Assets/Images/blackWidowPoster.jpg",
+      "rating": "7.9",
+      "name": "Widow Again",
+      "category": "Adventure"
+    },
+    {
+      "image": "Assets/images/IronManPoster.jpg",
+      "rating": "8.3",
+      "name": "Iron Man 2",
+      "category": "Adventure"
+    },
+    {
+      "image": "Assets/Images/blackWidowPoster.jpg",
+      "rating": "8.1",
+      "name": "Funny Widow",
+      "category": "Comedy"
+    },
+    {
+      "image": "Assets/Images/blackWidowPoster.jpg",
+      "rating": "7.6",
+      "name": "Comedy Action",
+      "category": "Comedy"
+    },
   ];
 
   @override
   Widget build(BuildContext context) {
     //ntl3 lmovie 3ala 7sb anhi category selected
-    List<Map<String, String>> filteredMovies =
-        movies.where((movie) => movie["category"] == categories[selectedCategoryIndex]).toList();
+    List<Map<String, String>> filteredMovies = movies
+        .where(
+            (movie) => movie["category"] == categories[selectedCategoryIndex])
+        .toList();
 
     return SafeArea(
       child: Scaffold(
@@ -54,7 +146,8 @@ class _BrowserScreenState extends State<BrowserScreen> {
               height: 52,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 itemCount: categories.length,
                 itemBuilder: (context, index) {
                   return GestureDetector(

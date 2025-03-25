@@ -3,5 +3,6 @@ class CastMember {
   final String character;
   final String imageUrl;
 
-  CastMember({required this.name, required this.character, required this.imageUrl});
+  CastMember(
+      {required this.name, required this.character, required this.imageUrl});
 }

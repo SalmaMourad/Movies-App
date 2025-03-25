@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class watchCustomButton extends StatelessWidget {
@@ -10,16 +9,15 @@ class watchCustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      margin: EdgeInsets.only(left: 12,right: 12,bottom: 12,top: 7),
+      margin: EdgeInsets.only(left: 12, right: 12, bottom: 12, top: 7),
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color(0xFFE82626), 
+          backgroundColor: Color(0xFFE82626),
           foregroundColor: Colors.white,
-          padding: EdgeInsets.symmetric(
-              horizontal: 30, vertical: 15),
+          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15), 
+            borderRadius: BorderRadius.circular(15),
           ),
           elevation: 5,
         ),

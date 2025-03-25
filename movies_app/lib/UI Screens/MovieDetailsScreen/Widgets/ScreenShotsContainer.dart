@@ -20,7 +20,7 @@ class ScreenShotsContainer extends StatelessWidget {
                 fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
           ),
           Container(
-            margin: EdgeInsets.only(left: 10, right: 10, top: 10,bottom: 5),
+            margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 5),
             height: 167,
             width: double.infinity,
             decoration: BoxDecoration(
@@ -33,7 +33,7 @@ class ScreenShotsContainer extends StatelessWidget {
             child: Text(''),
           ),
           Container(
-            margin: EdgeInsets.only(left: 10, right: 10, top: 10,bottom: 5),
+            margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 5),
             height: 167,
             width: double.infinity,
             decoration: BoxDecoration(
@@ -46,7 +46,7 @@ class ScreenShotsContainer extends StatelessWidget {
             child: Text(''),
           ),
           Container(
-            margin: EdgeInsets.only(left: 10, right: 10, top: 10,bottom: 5),
+            margin: EdgeInsets.only(left: 10, right: 10, top: 10, bottom: 5),
             height: 167,
             width: double.infinity,
             decoration: BoxDecoration(

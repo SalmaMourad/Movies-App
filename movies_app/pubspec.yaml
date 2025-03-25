@@ -28,6 +28,11 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  retrofit: ^4.4.0
+  dio:
+  logger: ^2.4.0  # for logging purpose
+  json_annotation: ^4.9.0
+  build_runner:
   flutter:
     sdk: flutter
 
@@ -37,6 +42,10 @@ dependencies:
   cupertino_icons: ^1.0.8
 
 dev_dependencies:
+  retrofit_generator: '>=8.0.0 <10.0.0' # for Dart 3.3 use ^9.0.0
+  # build_runner: 
+  build_runner: ^2.4.15
+  json_serializable: ^6.8.0
   flutter_test:
     sdk: flutter
 
