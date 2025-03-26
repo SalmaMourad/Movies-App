@@ -1,3 +1,34 @@
+import 'package:json_annotation/json_annotation.dart';
+import '../Models/movie_model.dart';
+
+part 'movie_response.g.dart';
+
+@JsonSerializable()
+class MovieResponse {
+  @JsonKey(name: "data")
+  final DataWrapper? data;
+
+  MovieResponse({this.data});
+
+  factory MovieResponse.fromJson(Map<String, dynamic> json) =>
+      _$MovieResponseFromJson(json);
+
+  Map<String, dynamic> toJson() => _$MovieResponseToJson(this);
+}
+
+@JsonSerializable()
+class DataWrapper {
+  @JsonKey(name: "movies")
+  final List<MovieModel>? movies;
+
+  DataWrapper({this.movies});
+
+  factory DataWrapper.fromJson(Map<String, dynamic> json) =>
+      _$DataWrapperFromJson(json);
+
+  Map<String, dynamic> toJson() => _$DataWrapperToJson(this);
+}
+
 // import 'package:json_annotation/json_annotation.dart';
 
 // part 'movie_response.g.dart';
@@ -32,32 +63,6 @@
 //   factory Data.fromJson(Map<String, dynamic> json) => _$DataFromJson(json);
 //   Map<String, dynamic> toJson() => _$DataToJson(this);
 // }
-
-// // @JsonSerializable()
-// // class Movie {
-// //   final int id;
-// //   final String title;
-// //   final String year;
-// //   final String rating;
-// //   final String runtime;
-// //   final String? summary;
-// //   final String? background_image;
-// //   final String? small_cover_image;
-
-// //   Movie({
-// //     required this.id,
-// //     required this.title,
-// //     required this.year,
-// //     required this.rating,
-// //     required this.runtime,
-// //     this.summary,
-// //     this.background_image,
-// //     this.small_cover_image,
-// //   });
-
-// //   factory Movie.fromJson(Map<String, dynamic> json) => _$MovieFromJson(json);
-// //   Map<String, dynamic> toJson() => _$MovieToJson(this);
-// // }
 // @JsonSerializable()
 // class Movie {
 //   final int id;
