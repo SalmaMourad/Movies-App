@@ -21,15 +21,15 @@ class _ApiService implements ApiService {
 
   @override
   Future<MovieResponse> getMovies({
-    int? limit,
-    int? page,
+    int? limit = 20,
+    int? page = 1,
     String? quality,
     int? minimumRating,
     String? queryTerm,
     String? genre,
-    String? sortBy,
-    String? orderBy,
-    bool? withRtRatings,
+    String? sortBy = "rating",
+    String? orderBy = "desc",
+    bool? withRtRatings = false,
   }) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
