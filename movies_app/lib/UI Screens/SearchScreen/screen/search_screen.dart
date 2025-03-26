@@ -4,7 +4,7 @@ import 'package:movies_app/CustomWidgetsReapeted/MoviesGrid.dart';
 import '../widgets/EmptySearchScreen.dart';
 
 class SearchScreen extends StatefulWidget {
-  final List<Map<String, String>> allMovies;//34an 23ml test bs 
+  final List<Map<String, String>> allMovies; //34an 23ml test bs
 
   const SearchScreen({super.key, required this.allMovies});
 
@@ -16,7 +16,7 @@ class _SearchScreenState extends State<SearchScreen> {
   String searchQuery = "";
   List<Map<String, String>> filteredMovies = [];
 
-//34an 23ml test  
+//34an 23ml test
   void _searchMovies(String query) {
     setState(() {
       searchQuery = query;
@@ -56,7 +56,7 @@ class _SearchScreenState extends State<SearchScreen> {
       ),
       backgroundColor: Colors.black,
       body: searchQuery.isEmpty
-          ? EmptySearchScreenWidget()//lw lsearch lsa mbd24
+          ? EmptySearchScreenWidget() //lw lsearch lsa mbd24
           : MoviesGrid(
               movies: searchQuery.isEmpty ? widget.allMovies : filteredMovies),
     );

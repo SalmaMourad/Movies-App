@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../CustomWidgetsReapeted/MoviesGrid.dart';
@@ -14,7 +13,7 @@ class SimilarMoviesContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-            // margin: EdgeInsets.symmetric(horizontal: 10),
+        // margin: EdgeInsets.symmetric(horizontal: 10),
 
         // color: Colors.amber,
         height: 375,
