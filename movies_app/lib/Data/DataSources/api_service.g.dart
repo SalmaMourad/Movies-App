@@ -21,7 +21,7 @@ class _ApiService implements ApiService {
 
   @override
   Future<MovieResponse> getMovies({
-    int? limit = 20,
+    int? limit = 60, //20
     int? page = 1,
     String? quality,
     int? minimumRating,
