@@ -59,7 +59,7 @@
 //                   return GestureDetector(
 //                     onTap: () {
 //                       setState(() {
-//                         selectedCategoryIndex = index; 
+//                         selectedCategoryIndex = index;
 //                       });
 //                     },
 //                     child: CategoryTab(
@@ -70,8 +70,8 @@
 //                 },
 //               ),
 //             ),
-      
-//             // Movies Grid 
+
+//             // Movies Grid
 //             Expanded(
 //               child: Padding(
 //                 padding: const EdgeInsets.symmetric(horizontal: 8.0),

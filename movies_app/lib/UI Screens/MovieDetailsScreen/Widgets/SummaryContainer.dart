@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class SummaryContainer extends StatelessWidget {
@@ -36,4 +35,3 @@ class SummaryContainer extends StatelessWidget {
     );
   }
 }
-

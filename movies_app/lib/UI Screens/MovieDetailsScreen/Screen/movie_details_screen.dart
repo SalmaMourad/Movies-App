@@ -6,10 +6,10 @@ import '../Widgets/SimilarMoviesContainer.dart';
 import '../Widgets/SummaryContainer.dart';
 import '../Widgets/genere.dart';
 import '../Widgets/watchCustomButton.dart';
-import '../Widgets/MovieCastContainer.dart'; 
+import '../Widgets/MovieCastContainer.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
-  final List<Map<String, String>> allMovies; 
+  final List<Map<String, String>> allMovies;
   final List<Map<String, String>> castList;
 
   MovieDetailsScreen(
@@ -28,7 +28,7 @@ class MovieDetailsScreen extends StatelessWidget {
             ScreenShotsContainer(),
             SimilarMoviesContainer(allMovies: allMovies),
             SummaryContainer(),
-            MovieCastContainer(castList: castList), 
+            MovieCastContainer(castList: castList),
             MovieGenere(),
           ],
         ),
