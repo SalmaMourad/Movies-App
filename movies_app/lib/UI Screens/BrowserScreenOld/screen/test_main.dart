@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/UI%20Screens/BrowserScreenOld/screen/browser_screen.dart';
-import 'package:movies_app/UI%20Screens/SearchScreen/screen/search_screen.dart';
+import 'package:movies_app/UI%20Screens/SearchScreenOld/screen/search_screen.dart';
 
 import '../../MovieDetailsScreen/Screen/movie_details_screen.dart';
 

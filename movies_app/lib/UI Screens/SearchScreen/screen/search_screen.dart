@@ -1,64 +1,88 @@
 import 'package:flutter/material.dart';
-import 'package:movies_app/CustomWidgetsReapeted/MoviesGrid.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies_app/Domain/Models/movie.dart';
+import 'package:movies_app/UI%20Screens/BrowserScreen/Screens/movie_list_screen.dart';
+import '../Cubit/search_cubit.dart';
 
-import '../widgets/EmptySearchScreen.dart';
-
-class SearchScreen extends StatefulWidget {
-  final List<Map<String, String>> allMovies; //34an 23ml test bs
-
-  const SearchScreen({super.key, required this.allMovies});
-
-  @override
-  _SearchScreenState createState() => _SearchScreenState();
-}
-
-class _SearchScreenState extends State<SearchScreen> {
-  String searchQuery = "";
-  List<Map<String, String>> filteredMovies = [];
-
-//34an 23ml test
-  void _searchMovies(String query) {
-    setState(() {
-      searchQuery = query;
-      filteredMovies = widget.allMovies
-          .where((movie) =>
-              movie["name"]!.toLowerCase().contains(query.toLowerCase()) ||
-              movie["category"]!.toLowerCase().contains(query.toLowerCase()))
-          .toList();
-    });
-  }
+class SearchScreen extends StatelessWidget {
+  final TextEditingController searchController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: Color(0xff282A28),
-          ),
-          child: TextField(
-            onChanged: _searchMovies,
-            decoration: const InputDecoration(
-              prefixIcon: Icon(
-                Icons.search_outlined,
-                color: Colors.white,
-                size: 20,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.black12,
+        // appBar: AppBar(title: Text("Search Movies")),
+        body: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                style: TextStyle(color: Colors.white),
+                controller: searchController,
+                decoration: InputDecoration(
+                  hintText: "Search movies...",
+                  hintStyle: TextStyle(color: Colors.white),
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.white,
+                  ),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15)),
+                ),
+                onChanged: (query) {
+                  context.read<SearchCubit>().searchMovies(query);
+                },
               ),
-              hintText: "Search...",
-              hintStyle: TextStyle(color: Colors.white, fontSize: 16),
-              border: InputBorder.none,
             ),
-            style: const TextStyle(color: Colors.white),
-          ),
+            Expanded(
+              child: BlocBuilder<SearchCubit, List<Movie>>(
+                builder: (context, movies) {
+                  if (movies.isEmpty || searchController == null)
+                    return Center(
+                      child: Image.asset('Assets/Images/EmptySearchScreen.png'),
+                      // Text("No movies found")
+                    );
+                  // return ListView.builder(
+                  //   itemCount: movies.length,
+                  //   itemBuilder: (context, index) {
+                  //     final movie = movies[index];
+                  //     return ListTile(
+                  //       // leading: Image.network(movie.largeCoverImage ?? ""),
+                  //       title: Text(movie.title),
+                  //       subtitle: Text(movie.description ?? ""),
+                  //     );
+                  //   },
+                  // );
+                  return Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 15,
+                        mainAxisSpacing: 15,
+                        childAspectRatio: 0.7,
+                      ),
+                      itemCount: movies.length,
+                      itemBuilder: (context, index) {
+                        final movie = movies[index];
+                        return MovieCard(
+                          movieName: movie.title,
+                          movieImagePath: movie.largeCoverImage ??
+                              "https://example.com/default-image.jpg",
+                          movieRating: movie.rating?.toString() ?? "N/A",
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
+            ),
+          ],
         ),
-        backgroundColor: Colors.black,
       ),
-      backgroundColor: Colors.black,
-      body: searchQuery.isEmpty
-          ? EmptySearchScreenWidget() //lw lsearch lsa mbd24
-          : MoviesGrid(
-              movies: searchQuery.isEmpty ? widget.allMovies : filteredMovies),
     );
   }
 }
