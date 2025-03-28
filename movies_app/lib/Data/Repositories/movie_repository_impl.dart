@@ -1,3 +1,4 @@
+import 'package:movies_app/Data/Responses/movie_response.dart';
 import '../../Domain/Repositories/movie_repository.dart';
 import '../../Domain/Models/movie.dart';
 import '../DataSources/api_service.dart';
@@ -26,6 +27,11 @@ class MovieRepositoryImpl implements MovieRepository {
       return [];
     }
   }
+  //  Future<List<Movieee>> getMovieSuggestions(int movieId) async {
+  //   final response = await apiService.getMovieSuggestions(movieId);
+  //   return response.movies;
+  // }
+  
 }
 
 // import '../../domain/repository/movie_repository.dart';

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import '../Widgets/MoviePosterDetailsContainer.dart';
-import '../Widgets/RatingsAllContainers.dart';
-import '../Widgets/ScreenShotsContainer.dart';
-import '../Widgets/SimilarMoviesContainer.dart';
-import '../Widgets/SummaryContainer.dart';
-import '../Widgets/genere.dart';
-import '../Widgets/watchCustomButton.dart';
-import '../Widgets/MovieCastContainer.dart';
+import '../../../MovieDetailsScreennnn/Widgets/MoviePosterDetailsContainer.dart';
+import '../../../MovieDetailsScreennnn/Widgets/RatingsAllContainers.dart';
+import '../../../MovieDetailsScreennnn/Widgets/ScreenShotsContainer.dart';
+import '../../../MovieDetailsScreennnn/Widgets/SimilarMoviesContainer.dart';
+import '../../../MovieDetailsScreennnn/Widgets/SummaryContainer.dart';
+import '../../../MovieDetailsScreennnn/Widgets/genere.dart';
+import '../../../MovieDetailsScreennnn/Widgets/watchCustomButton.dart';
+import '../../../MovieDetailsScreennnn/Widgets/MovieCastContainer.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   final List<Map<String, String>> allMovies;
