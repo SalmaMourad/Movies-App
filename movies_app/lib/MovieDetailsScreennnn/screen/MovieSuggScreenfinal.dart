@@ -2,18 +2,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/Domain/Models/movie.dart';
-import 'package:movies_app/MovieSuggestionsStuff/MovieSuggestionsCubit.dart';
+import 'package:movies_app/MovieDetailsScreennnn/cubit/MovieSuggestionsCubit.dart';
 
-class MovieDetailsScreen extends StatefulWidget {
+class MovieSuggScreen extends StatefulWidget {
   final int movieId;
 
-  const MovieDetailsScreen({Key? key, required this.movieId}) : super(key: key);
+  const MovieSuggScreen({Key? key, required this.movieId}) : super(key: key);
 
   @override
-  _MovieDetailsScreenState createState() => _MovieDetailsScreenState();
+  _MovieSuggScreenState createState() => _MovieSuggScreenState();
 }
 
-class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
+class _MovieSuggScreenState extends State<MovieSuggScreen> {
   @override
   void initState() {
     super.initState();
@@ -65,7 +65,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => MovieDetailsScreen(
+                                      builder: (context) => MovieSuggScreen(
                                         movieId: movie.id,
                                       ),
                                     ),
@@ -125,6 +125,8 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                       );
                     },
                   ),
+               
+               
                 ],
               ),
             ),

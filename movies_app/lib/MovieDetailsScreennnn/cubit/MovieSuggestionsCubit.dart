@@ -1,7 +1,7 @@
 // movie_suggestions_cubit.dart
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/Domain/Models/movie.dart';
-import 'package:movies_app/MovieSuggestionsStuff/MovieSuggestionsRepository.dart';
+import 'package:movies_app/Data/Repositories/MovieSuggestionsRepository.dart';
 
 class MovieSuggestionsCubit extends Cubit<List<Movie>> {
   final MovieSuggestionsRepository repository;

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/Domain/Models/movie.dart';
+import 'package:movies_app/MovieDetailsScreennnn/screen/movie_details_screen_final.dart';
 import 'package:movies_app/UI%20Screens/BrowserScreen/Screens/movie_list_screen.dart';
 import '../Cubit/search_cubit.dart';
 
@@ -43,16 +44,7 @@ class SearchScreen extends StatelessWidget {
                       child: Image.asset('Assets/Images/EmptySearchScreen.png'),
                       // Text("No movies found")
                     );
-                  // return ListView.builder(
-                  //   itemCount: movies.length,
-                  //   itemBuilder: (context, index) {
-                  //     final movie = movies[index];
-                  //     return ListTile(
-                  //       // leading: Image.network(movie.largeCoverImage ?? ""),
-                  //       title: Text(movie.title),
-                  //       subtitle: Text(movie.description ?? ""),
-                  //     );
-                  //   },
+
                   // );
                   return Padding(
                     padding:
@@ -68,11 +60,22 @@ class SearchScreen extends StatelessWidget {
                       itemCount: movies.length,
                       itemBuilder: (context, index) {
                         final movie = movies[index];
-                        return MovieCard(
-                          movieName: movie.title,
-                          movieImagePath: movie.largeCoverImage ??
-                              "https://example.com/default-image.jpg",
-                          movieRating: movie.rating?.toString() ?? "N/A",
+                        return InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    MovieDetailsScreen(movieId: movie.id),
+                              ),
+                            );
+                          },
+                          child: MovieCard(
+                            movieName: movie.title,
+                            movieImagePath: movie.largeCoverImage ??
+                                "https://example.com/default-image.jpg",
+                            movieRating: movie.rating?.toString() ?? "N/A",
+                          ),
                         );
                       },
                     ),

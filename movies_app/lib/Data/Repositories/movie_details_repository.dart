@@ -1,5 +1,5 @@
-import 'package:movies_app/MovieDetailsScreennnn/movie_details_response.dart';
-import '../Data/DataSources/api_service.dart';
+import 'package:movies_app/Data/Responses/movie_details_response.dart';
+import '../DataSources/api_service.dart';
 
 class MovieDetailsRepository {
   final ApiService apiService;

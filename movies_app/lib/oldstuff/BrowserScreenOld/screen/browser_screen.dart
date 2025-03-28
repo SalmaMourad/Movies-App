@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/CustomWidgetsReapeted/MoviesGrid.dart';
-import 'package:movies_app/UI%20Screens/BrowserScreenOld/widgets/category_tab.dart';
+import 'package:movies_app/oldstuff/BrowserScreenOld/widgets/category_tab.dart';
 
 class BrowserScreen extends StatefulWidget {
   //34an test llsearch screen

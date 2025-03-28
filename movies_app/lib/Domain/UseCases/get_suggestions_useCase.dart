@@ -1,5 +1,5 @@
 import 'package:movies_app/Domain/Models/movie.dart';
-import 'package:movies_app/MovieSuggestionsStuff/MovieSuggestionsRepository.dart';
+import 'package:movies_app/Data/Repositories/MovieSuggestionsRepository.dart';
 
 class GetMovieSuggestionsUseCase {
   final MovieSuggestionsRepository repository;

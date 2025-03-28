@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/Domain/Models/movie.dart';
+import 'package:movies_app/MovieDetailsScreennnn/screen/movie_details_screen_final.dart';
 // import '../../../oldCode/ANewfortest/movie_list_screen copy.dart';
 import '../Cubit/movie_cubit.dart';
 
@@ -71,11 +72,22 @@ class _MovieListScreenState extends State<MovieListScreen> {
                       itemCount: movies.length,
                       itemBuilder: (context, index) {
                         final movie = movies[index];
-                        return MovieCard(
-                          movieName: movie.title,
-                          movieImagePath: movie.largeCoverImage ??
-                              "https://example.com/default-image.jpg",
-                          movieRating: movie.rating?.toString() ?? "N/A",
+                        return InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    MovieDetailsScreen(movieId: movie.id),
+                              ),
+                            );
+                          },
+                          child: MovieCard(
+                            movieName: movie.title,
+                            movieImagePath: movie.largeCoverImage ??
+                                "https://example.com/default-image.jpg",
+                            movieRating: movie.rating?.toString() ?? "N/A",
+                          ),
                         );
                       },
                     ),
@@ -87,24 +99,21 @@ class _MovieListScreenState extends State<MovieListScreen> {
         ),
       ),
     );
-
-    
   }
-  
 }
-
 
 class CategoryTab extends StatelessWidget {
   final String title;
   final bool isSelected;
 
-  const CategoryTab({required this.title, this.isSelected = false, Key? key}) : super(key: key);
+  const CategoryTab({required this.title, this.isSelected = false, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 48,
-      margin: const EdgeInsets.only(left: 10,bottom: 14),
+      margin: const EdgeInsets.only(left: 10, bottom: 14),
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
       decoration: BoxDecoration(
         color: isSelected ? Colors.amber : Colors.black,
@@ -128,8 +137,12 @@ class MovieCard extends StatelessWidget {
   final String movieRating;
   final String movieName;
 
-
-  const MovieCard({required this.movieImagePath, required this.movieRating, Key? key, required this.movieName}) : super(key: key);
+  const MovieCard(
+      {required this.movieImagePath,
+      required this.movieRating,
+      Key? key,
+      required this.movieName})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,4 +1,4 @@
-import 'package:movies_app/Domain/Repositories/search_repo.dart';
+import 'package:movies_app/Domain/Repositories/search_repository.dart';
 import '../../Domain/Models/movie.dart';
 
 class SearchMoviesUseCase {

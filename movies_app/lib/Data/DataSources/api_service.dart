@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:movies_app/Data/Responses/movie_response.dart';
-import 'package:movies_app/MovieDetailsScreennnn/movie_details_response.dart';
+import 'package:movies_app/Data/Responses/movie_details_response.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'api_service.g.dart';
