@@ -1,92 +1,85 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:movies_app/Data/Repositories/search_repository_implm.dart';
-import 'package:movies_app/UI%20Screens/BrowserScreen/Screens/movie_list_screen.dart';
-import 'package:movies_app/UI%20Screens/SearchScreen/Cubit/search_cubit.dart';
+import 'package:movies_app/asalmaaaaaaaaaaaaaaa/movie_details_repository.dart';
+import 'package:movies_app/asalmaaaaaaaaaaaaaaa/movie_details_screen.dart';
 import '../../Data/DataSources/api_service.dart';
 import '../../Data/Repositories/movie_repository_impl.dart';
-// import '../../Data/Repositories/search_repository_impl.dart';
-import '../../Domain/UseCases/get_movies_usecase.dart';
-import '../../Domain/UseCases/search_movies_usecase.dart';
-import '../SearchScreen/Screen/search_screen.dart';
-import 'Cubit/movie_cubit.dart';
-// import 'Cubit/search_cubit.dart';
-
 void main() {
   final dio = Dio();
   final apiService = ApiService(dio);
-
-  // Initialize Movies
   final movieRepository = MovieRepositoryImpl(apiService: apiService);
-  final getMoviesUseCase = GetMoviesUseCase(movieRepository);
-
-  // Initialize Search
-  final searchRepository = SearchRepositoryImpl(apiService: apiService);
-  final searchMoviesUseCase = SearchMoviesUseCase(searchRepository);
+  final movieDetailsRepository = MovieDetailsRepository(apiService: apiService);
 
   runApp(MyApp(
-    getMoviesUseCase: getMoviesUseCase,
-    searchMoviesUseCase: searchMoviesUseCase,
+    movieRepository: movieRepository,
+    movieDetailsRepository: movieDetailsRepository,
   ));
 }
 
 class MyApp extends StatelessWidget {
-  final GetMoviesUseCase getMoviesUseCase;
-  final SearchMoviesUseCase searchMoviesUseCase;
+  final MovieRepositoryImpl movieRepository;
+  final MovieDetailsRepository movieDetailsRepository;
+  
 
-  MyApp({required this.getMoviesUseCase, required this.searchMoviesUseCase});
+  MyApp({required this.movieRepository, required this.movieDetailsRepository});
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
+    return MultiRepositoryProvider(
       providers: [
-        BlocProvider(
-            create: (context) => MovieCubit(getMoviesUseCase)..loadMovies()),
-        BlocProvider(
-            create: (context) =>
-                SearchCubit(searchMoviesUseCase: searchMoviesUseCase)),
+        RepositoryProvider.value(value: movieRepository),
+        RepositoryProvider.value(value: movieDetailsRepository),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SearchScreen(), //MovieListScreen
+        home:  MovieDetailsScreen(movieId: 15),
       ),
     );
   }
 }
 
-// import 'package:flutter/material.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:dio/dio.dart';
-// import 'package:movies_app/UI%20Screens/BrowserScreen/Screens/movie_list_screen.dart';
-// import '../../Data/DataSources/api_service.dart';
-// import '../../Data/Repositories/movie_repository_impl.dart';
-// import '../../Domain/UseCases/get_movies_usecase.dart';
-// import 'Cubit/movie_cubit.dart';
-// // import 'presentation/cubit/movie_cubit.dart';
-// // import 'presentation/screens/movie_list_screen.dart';
+// import 'Cubit/search_cubit.dart';
 
 // void main() {
 //   final dio = Dio();
 //   final apiService = ApiService(dio);
+
+//   // Initialize Movies
 //   final movieRepository = MovieRepositoryImpl(apiService: apiService);
 //   final getMoviesUseCase = GetMoviesUseCase(movieRepository);
+//   // final movieRepository = MovieRepositoryImpl(moviesApi);
 
-//   runApp(MyApp(getMoviesUseCase: getMoviesUseCase));
+
+//   // Initialize Search
+//   final searchRepository = SearchRepositoryImpl(apiService: apiService);
+//   final searchMoviesUseCase = SearchMoviesUseCase(searchRepository);
+
+//   runApp(MyApp(
+//     getMoviesUseCase: getMoviesUseCase,
+//     searchMoviesUseCase: searchMoviesUseCase,
+//   ));
 // }
 
 // class MyApp extends StatelessWidget {
 //   final GetMoviesUseCase getMoviesUseCase;
+//   final SearchMoviesUseCase searchMoviesUseCase;
 
-//   MyApp({required this.getMoviesUseCase});
+//   MyApp({required this.getMoviesUseCase, required this.searchMoviesUseCase});
 
 //   @override
 //   Widget build(BuildContext context) {
-//     return BlocProvider(
-//       create: (context) => MovieCubit(getMoviesUseCase)..loadMovies(),
+//     return MultiBlocProvider(
+//       providers: [
+//         BlocProvider(
+//             create: (context) => MovieCubit(getMoviesUseCase)..loadMovies()),
+//         BlocProvider(
+//             create: (context) =>
+//                 SearchCubit(searchMoviesUseCase: searchMoviesUseCase)),
+//       ],
 //       child: MaterialApp(
 //         debugShowCheckedModeBanner: false,
-//         home: MovieListScreen(),
+//         home: MovieDetailsScreen(movieId: 10,), //MovieListScreen  SearchScreen
 //       ),
 //     );
 //   }
