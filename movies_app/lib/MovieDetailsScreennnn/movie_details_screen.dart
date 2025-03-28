@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies_app/asalmaaaaaaaaaaaaaaa/movie_details_repository.dart';
-import 'package:movies_app/asalmaaaaaaaaaaaaaaa/movie_details_response.dart';
+import 'package:movies_app/MovieDetailsScreennnn/movie_details_repository.dart';
+import 'package:movies_app/MovieDetailsScreennnn/movie_details_response.dart';
 // import 'package:url_launcher/url_launcher.dart';
 import 'movie_details_cubit.dart';
 

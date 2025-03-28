@@ -104,7 +104,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<MovieResponse> getMovieSuggestions(int movieId) async {
+  Future<MovieResponse> getMovieSuggestions({required int movieId}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'movie_id': movieId};
     final _headers = <String, dynamic>{};

@@ -1,4 +1,4 @@
-import 'package:movies_app/asalmaaaaaaaaaaaaaaa/movie_details_response.dart';
+import 'package:movies_app/MovieDetailsScreennnn/movie_details_response.dart';
 import '../Data/DataSources/api_service.dart';
 
 class MovieDetailsRepository {

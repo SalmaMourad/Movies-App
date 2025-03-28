@@ -17,6 +17,12 @@ class MovieModel extends Movie {
   @JsonKey(name: 'large_cover_image')
   final String? largeCoverImage;
 
+  @JsonKey(name: 'medium_cover_image')
+  final String? mediumCoverImage;
+
+  @JsonKey(name: 'small_cover_image')
+  final String? smallCoverImage;
+
   @JsonKey(name: 'rating')
   final double? rating;
 
@@ -24,6 +30,8 @@ class MovieModel extends Movie {
   final List<String>? genres;
 
   MovieModel({
+    this.mediumCoverImage,
+    this.smallCoverImage,
     required this.id,
     required this.title,
     this.description,
@@ -35,6 +43,8 @@ class MovieModel extends Movie {
           title: title,
           description: description,
           largeCoverImage: largeCoverImage,
+          mediumCoverImage: mediumCoverImage,
+          smallCoverImage: smallCoverImage,
           rating: rating,
           genres: genres,
         );
