@@ -26,7 +26,7 @@ class SummaryContainer extends StatelessWidget {
             ],
           ),
           Text(
-            summaryText ?? '',
+            summaryText ?? 'No summary avalible for this movie',
             maxLines: 15,
             style: TextStyle(
               color: Colors.white,
