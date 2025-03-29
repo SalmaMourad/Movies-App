@@ -6,6 +6,7 @@ import 'package:movies_app/UI%20Screens/BrowserScreen/Screens/movie_list_screen.
 import 'package:movies_app/UI%20Screens/HomeScreen/widgets/MoviesCategoryHomeWidget.dart';
 import 'package:movies_app/UI%20Screens/HomeScreen/widgets/SliderContainerCustom.dart';
 import 'package:movies_app/UI%20Screens/SearchScreen/Screen/search_screen.dart';
+import 'package:movies_app/db/profile/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -13,13 +14,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _currentIndex = 0; 
-  
+  int _currentIndex = 0;
+
   final List<Widget> _screens = [
     HomeContent(),
-    SearchScreen(), 
+    SearchScreen(),
     MovieListScreen(),
-    MovieListScreen(), 
+    UserProfileScreen(),
   ];
   // SearchScreen
 
@@ -38,12 +39,13 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.black,
         selectedItemColor: Colors.yellow,
         unselectedItemColor: Colors.white,
-        type: BottomNavigationBarType.fixed, // Recommended for more than 3 items
+        type:
+            BottomNavigationBarType.fixed, // Recommended for more than 3 items
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
           BottomNavigationBarItem(
-            icon: Icon(Icons.explore), 
+            icon: Icon(Icons.explore),
             label: "Browse",
           ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
