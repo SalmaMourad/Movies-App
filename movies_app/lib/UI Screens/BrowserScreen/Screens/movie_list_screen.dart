@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/Domain/Models/movie.dart';
 import 'package:movies_app/MovieDetailsScreennnn/screen/movie_details_screen_final.dart';
-// import '../../../oldCode/ANewfortest/movie_list_screen copy.dart';
 import '../Cubit/movie_cubit.dart';
 
 class MovieListScreen extends StatefulWidget {
@@ -53,7 +52,6 @@ class _MovieListScreenState extends State<MovieListScreen> {
               ),
             ),
 
-            // Movie List
             Expanded(
               child: BlocBuilder<MovieCubit, List<Movie>>(
                 builder: (context, movies) {

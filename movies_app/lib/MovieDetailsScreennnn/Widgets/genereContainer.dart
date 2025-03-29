@@ -23,10 +23,3 @@ class genereContainer extends StatelessWidget {
     );
   }
 }
-
-// Navigator.push(
-//   context,
-//   MaterialPageRoute(
-//     builder: (context) => MovieDetailsScreen(movieId: movie.id),
-//   ),
-// );

@@ -14,16 +14,6 @@ class watchCustomButton extends StatelessWidget {
           _launchURL(url!);
         }
       },
-
-      //  style: ElevatedButton.styleFrom(
-      //     backgroundColor: Color(0xFFE82626),
-      //     foregroundColor: Colors.white,
-      //     padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-      //     shape: RoundedRectangleBorder(
-      //       borderRadius: BorderRadius.circular(15),
-      //     ),
-      //     elevation: 5,
-      //   ),
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
         height: 60,

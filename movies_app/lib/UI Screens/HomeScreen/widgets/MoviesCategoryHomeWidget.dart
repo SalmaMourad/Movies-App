@@ -75,12 +75,3 @@ Widget MoviesCategoryHomeWidget({
     ],
   );
 }
-
-// void navigateToCategory(BuildContext context, String category) {
-//   Navigator.push(
-//     context,
-//     MaterialPageRoute(
-//       builder: (context) => MovieListScreen(),
-//     ),
-//   );
-// }

@@ -16,12 +16,11 @@ class MoviePosterDetailsContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 610,
-      // color: Appcolors(),
       child: Stack(
         children: [
           Positioned.fill(
             child: Image.network(
-              imgUrl ?? "", // Replace with your image URL
+              imgUrl ?? "", 
               fit: BoxFit.cover,
             ),
           ),

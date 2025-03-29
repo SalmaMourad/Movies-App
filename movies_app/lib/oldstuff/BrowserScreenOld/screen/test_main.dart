@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/oldstuff/BrowserScreenOld/screen/browser_screen.dart';
-import 'package:movies_app/UI%20Screens/SearchScreenOld/screen/search_screen.dart';
+import 'package:movies_app/oldstuff/SearchScreenOld/screen/search_screen.dart';
 
-import '../../../UI Screens/MovieDetailsScreen/Screen/movie_details_screen.dart';
+import '../../MovieDetailsScreen/Screen/movie_details_screen.dart';
 
 void main() {
   runApp(const MoviesApp());

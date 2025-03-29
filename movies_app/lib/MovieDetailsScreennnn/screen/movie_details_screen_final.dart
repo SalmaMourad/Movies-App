@@ -9,10 +9,9 @@ import 'package:movies_app/UI%20Screens/MovieDetailsScreennn/Widgets/MoviePoster
 import 'package:movies_app/UI%20Screens/MovieDetailsScreennn/Widgets/RatingsAllContainers.dart';
 import 'package:movies_app/UI%20Screens/MovieDetailsScreennn/Widgets/ScreenShotsContainer.dart';
 import 'package:movies_app/UI%20Screens/MovieDetailsScreennn/Widgets/SummaryContainer.dart';
-// import 'package:movies_app/UI%20Screens/MovieDetailsScreennn/Widgets/watchCustomButton.dart';
-// import 'package:url_launcher/url_launcher.dart';
 import '../cubit/movie_details_cubit.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 class MovieDetailsScreen extends StatefulWidget {
   final int movieId;
 
@@ -38,10 +37,6 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
       child: SafeArea(
         child: Scaffold(
           backgroundColor: Colors.black26,
-          // appBar: AppBar(
-          //   // title: Center(child: const Text("Movie Details",style: TextStyle(color: Colors.white),)),
-          // backgroundColor:Colors.transparent,
-          // ),
           body: BlocBuilder<MovieDetailsCubit, MovieDetails?>(
             builder: (context, movie) {
               if (movie == null) {
@@ -51,7 +46,6 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                   
                     // movie.id,movie.large_cover_image,movie.rating,movie.title
                     MoviePosterDetailsContainer(
                       imgUrl: movie.large_cover_image,
@@ -59,9 +53,10 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                       year: movie.year,
                     ),
                     watchCustomButton(
-  url: movie.torrents?.isNotEmpty == true ? movie.torrents!.first.url : null,
-),
-                    // const watchCustomButton(),
+                      url: movie.torrents?.isNotEmpty == true
+                          ? movie.torrents!.first.url
+                          : null,
+                    ),
                     RatingsAllContainers(
                       rating: movie.rating,
                       runtime: movie.runtime,
@@ -75,7 +70,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                       img2: movie.large_screenshot_image2,
                       img3: movie.large_screenshot_image3,
                     ),
-        
+
                     const Text(
                       ' Similar',
                       style: TextStyle(
@@ -88,7 +83,8 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                     BlocBuilder<MovieSuggestionsCubit, List<Movie>>(
                       builder: (context, suggestions) {
                         if (suggestions.isEmpty) {
-                          return const Center(child: CircularProgressIndicator());
+                          return const Center(
+                              child: CircularProgressIndicator());
                         }
                         return SizedBox(
                           height: 320,
@@ -106,7 +102,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                               final movie = suggestions[index];
                               print(
                                   'Movie: ${movie.title}, Image: ${movie.mediumCoverImage}');
-        
+
                               return GestureDetector(
                                 onTap: () {
                                   Navigator.push(
@@ -160,15 +156,15 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                         );
                       },
                     ),
-        
+
                     const SizedBox(
                       height: 5,
                     ),
-        
+
                     SummaryContainer(
                       summaryText: movie.description_full,
                     ),
-        
+
                     if (movie.cast != null) ...[
                       const Padding(
                         padding: EdgeInsets.all(9.0),
@@ -198,11 +194,14 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                                         : const Icon(Icons.image_not_supported),
                                     title: Text(
                                       "Name : ${actor.name}",
-                                      style: const TextStyle(color: Colors.white),
+                                      style:
+                                          const TextStyle(color: Colors.white),
                                     ),
                                     subtitle: Text(
-                                      "Character : ${actor.character_name}" ?? "",
-                                      style: const TextStyle(color: Colors.white),
+                                      "Character : ${actor.character_name}" ??
+                                          "",
+                                      style:
+                                          const TextStyle(color: Colors.white),
                                     ),
                                   ),
                                 ))
@@ -236,47 +235,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                                 .toList(),
                           ),
                         ),
-                      // if (movie.torrents != null)
-                      //   Padding(
-                      //     padding: const EdgeInsets.all(8.0),
-                      //     child: Column(
-                      //       crossAxisAlignment: CrossAxisAlignment.start,
-                      //       children: [
-                      //         const Text("Torrents",
-                      //             style: TextStyle(
-                      //                 color: Colors.white,
-                      //                 fontSize: 18,
-                      //                 fontWeight: FontWeight.bold)),
-                      //         Column(
-                      //           children: movie.torrents!.map((torrent) {
-                      //             return ListTile(
-                      //               title: Text(
-                      //                 "${torrent.quality} - ${torrent.size}",
-                      //                 style: const TextStyle(
-                      //                   color: Colors.white,
-                      //                 ),
-                      //               ),
-                      //               subtitle: InkWell(onTap: () {
-                      //                 _launchURL(torrent.url);
-                      //               },
-                      //                 child: Text(
-                      //                   "Magnet: ${torrent.url}",
-                      //                   style: const TextStyle(
-                      //                     color: Colors.white,
-                      //                   ),
-                      //                 ),
-                      //               ),
-                      //               onTap: () {
-                      //                 // Handle torrent click (e.g., copy URL)
-                      //               },
-                      //             );
-                      //           }).toList(),
-                              // ),
-                            // ],
-                          // ),
-                        // ),
                     ]
-                   
                   ],
                 ),
               );
@@ -287,12 +246,14 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
     );
   }
 }
+
 Future<void> _launchURL(String url) async {
   final Uri uri = Uri.parse(url);
   if (!await launchUrl(uri)) {
     throw Exception('Could not launch $url');
   }
 }
+
 class genereContainer extends StatelessWidget {
   final String? genre;
   genereContainer({

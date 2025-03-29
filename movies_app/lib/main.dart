@@ -1,31 +1,90 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:dio/dio.dart';
+import 'package:movies_app/UI%20Screens/BrowserScreen/Screens/movie_list_screen.dart';
+import 'package:movies_app/UI%20Screens/SearchScreen/Screen/search_screen.dart';
+import 'package:movies_app/MovieDetailsScreennnn/screen/movie_details_screen_final.dart';
+import 'package:movies_app/MovieDetailsScreennnn/cubit/MovieSuggestionsCubit.dart';
+import 'package:movies_app/Data/Repositories/movie_details_repository.dart';
+import 'package:movies_app/Data/Repositories/MovieSuggestionsRepository.dart';
+import 'package:movies_app/Data/DataSources/api_service.dart';
+import 'package:movies_app/Data/Repositories/movie_repository_impl.dart';
+import 'package:movies_app/Data/Repositories/search_repository_implm.dart';
+import 'package:movies_app/Domain/UseCases/get_movies_usecase.dart';
+import 'package:movies_app/Domain/UseCases/search_movies_usecase.dart';
+import 'package:movies_app/UI%20Screens/BrowserScreen/Cubit/movie_cubit.dart';
+import 'package:movies_app/UI%20Screens/SearchScreen/Cubit/search_cubit.dart';
+import 'package:movies_app/UI%20Screens/HomeScreen/Screen/HomeScreenfinal.dart';
+// import 'package:movies_app/UI%20Screens/home/h3.dart'; // Make sure this import points to your HomeScreen file
 
 void main() {
-  runApp(const MoviesApp());
+  final dio = Dio();
+  final apiService = ApiService(dio);
+
+  // Initialize repositories
+  final movieRepository = MovieRepositoryImpl(apiService: apiService);
+  final searchRepository = SearchRepositoryImpl(apiService: apiService);
+  final movieDetailsRepository = MovieDetailsRepository(apiService: apiService);
+  final movieSuggestionsRepository = MovieSuggestionsRepository(apiService: apiService);
+
+  // Initialize use cases
+  final getMoviesUseCase = GetMoviesUseCase(movieRepository);
+  final searchMoviesUseCase = SearchMoviesUseCase(searchRepository);
+
+  runApp(MyApp(
+    getMoviesUseCase: getMoviesUseCase,
+    searchMoviesUseCase: searchMoviesUseCase,
+    movieDetailsRepository: movieDetailsRepository,
+    movieSuggestionsRepository: movieSuggestionsRepository,
+  ));
 }
 
-class MoviesApp extends StatelessWidget {
-  const MoviesApp({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: AnyScreen(),
-    );
-  }
-}
+class MyApp extends StatelessWidget {
+  final GetMoviesUseCase getMoviesUseCase;
+  final SearchMoviesUseCase searchMoviesUseCase;
+  final MovieDetailsRepository movieDetailsRepository;
+  final MovieSuggestionsRepository movieSuggestionsRepository;
 
-class AnyScreen extends StatefulWidget {
-  const AnyScreen({
-    super.key,
+  MyApp({
+    required this.getMoviesUseCase,
+    required this.searchMoviesUseCase,
+    required this.movieDetailsRepository,
+    required this.movieSuggestionsRepository,
   });
 
   @override
-  State<AnyScreen> createState() => _AnyScreenState();
-}
-
-class _AnyScreenState extends State<AnyScreen> {
-  @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider.value(value: movieDetailsRepository),
+        RepositoryProvider.value(value: movieSuggestionsRepository),
+      ],
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => MovieCubit(getMoviesUseCase)..loadMovies(),
+          ),
+          BlocProvider(
+            create: (context) => SearchCubit(searchMoviesUseCase: searchMoviesUseCase),
+          ),
+          BlocProvider(
+            create: (context) => MovieSuggestionsCubit(
+              repository: movieSuggestionsRepository,
+            ),
+          ),
+        ],
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          // Set HomeScreen as the initial route
+          initialRoute: '/',
+          routes: {
+            '/': (context) => HomeScreen(), // Changed from MovieListScreen to HomeScreen
+            '/browse': (context) => MovieListScreen(), // Added route for browsing
+            '/search': (context) => SearchScreen(),
+            '/details': (context) => MovieDetailsScreen(movieId: 15), // You can pass dynamic ID
+          },
+        ),
+      ),
+    );
   }
 }
