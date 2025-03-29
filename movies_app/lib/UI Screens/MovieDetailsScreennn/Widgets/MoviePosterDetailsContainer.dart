@@ -5,8 +5,11 @@ class MoviePosterDetailsContainer extends StatelessWidget {
   final String? imgUrl;
   final String? movieTitle;
   final int? year;
-   MoviePosterDetailsContainer({
-    super.key, this.imgUrl, this.movieTitle, this.year,
+  MoviePosterDetailsContainer({
+    super.key,
+    this.imgUrl,
+    this.movieTitle,
+    this.year,
   });
 
   @override
@@ -17,8 +20,8 @@ class MoviePosterDetailsContainer extends StatelessWidget {
       child: Stack(
         children: [
           Positioned.fill(
-            child:  Image.network(
-              imgUrl??"", // Replace with your image URL
+            child: Image.network(
+              imgUrl ?? "", // Replace with your image URL
               fit: BoxFit.cover,
             ),
           ),
@@ -37,6 +40,27 @@ class MoviePosterDetailsContainer extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 2, vertical: 15.0),
+                        child: IconButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            icon: Icon(
+                              Icons.arrow_back_ios_outlined,
+                              color: Colors.white,
+                            )),
+                      ),
+                      Spacer(),
+                      IconButton(onPressed: (){}, icon: Icon(
+                              Icons.bookmark,
+                              color: Colors.white,
+                            ))
+                    ],
+                  ),
                   Spacer(),
                   GestureDetector(
                     onTap: () {
@@ -46,7 +70,7 @@ class MoviePosterDetailsContainer extends StatelessWidget {
                   ),
                   Spacer(),
                   Text(
-                    movieTitle??"",
+                    movieTitle ?? "",
                     // "Doctor Strange In The Multiverse Of Madness",
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -57,7 +81,7 @@ class MoviePosterDetailsContainer extends StatelessWidget {
                   ),
                   SizedBox(height: 10),
                   Text(
-                    "${year}"??"",
+                    "${year}" ?? "",
                     style: TextStyle(
                       color: Colors.grey.shade400,
                       fontSize: 16,

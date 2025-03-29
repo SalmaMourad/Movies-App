@@ -14,7 +14,8 @@ import 'package:movies_app/Domain/UseCases/get_movies_usecase.dart';
 import 'package:movies_app/Domain/UseCases/search_movies_usecase.dart';
 import 'package:movies_app/UI%20Screens/BrowserScreen/Cubit/movie_cubit.dart';
 import 'package:movies_app/UI%20Screens/SearchScreen/Cubit/search_cubit.dart';
-import 'package:movies_app/UI%20Screens/home/h.dart'; // Make sure this import points to your HomeScreen file
+import 'package:movies_app/UI%20Screens/HomeScreen/Screen/HomeScreenfinal.dart';
+// import 'package:movies_app/UI%20Screens/home/h3.dart'; // Make sure this import points to your HomeScreen file
 
 void main() {
   final dio = Dio();
